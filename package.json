@@ -1,0 +1,54 @@
+{
+  "name": "led-badge-s1144",
+  "version": "1.0.0",
+  "description": "LED Badge S1144 controller — Desktop (Electron) & Android (WebAPK/PWA)",
+  "main": "electron/main.js",
+  "homepage": ".",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "build:all": "electron-builder -mwl",
+    "dist": "electron-builder"
+  },
+  "keywords": ["led", "badge", "USB", "WebHID", "S1144"],
+  "author": {
+    "name": "hgwellness6-code",
+    "email": "placeholder@github.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.ledbadge.s1144",
+    "productName": "LED Badge S1144",
+    "copyright": "MIT",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron/**/*",
+      "src/**/*"
+    ],
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "mac": {
+      "target": ["dmg", "zip"],
+      "category": "public.app-category.utilities"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Utility",
+      "maintainer": "hgwellness6-code <placeholder@github.com>"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
